@@ -9,7 +9,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<FrontPage />} />
-          <Route path="/comments" element={<CommentPage />} />
+          <Route path="/comments/:objectID" element={<CommentPage />} />
         </Routes>
       </Router>
     </div>

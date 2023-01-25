@@ -8,11 +8,11 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import SmsOutlinedIcon from '@mui/icons-material/SmsOutlined';
+import { Link } from "react-router-dom";
 
 const CardDisplay = (props) => {
-    console.log("🚀 ~ file: CardDisplay.jsx:13 ~ CardDisplay ~ props", props)
 
-    const { author, created_at, title, url, num_comments } = props.items;
+    const { author, created_at, title, url, num_comments, objectID } = props.items;
 
     return (
         <Card sx={{ maxWidth: 400, height: "auto" }}>
@@ -38,10 +38,12 @@ const CardDisplay = (props) => {
                     <SmsOutlinedIcon color="blue" />: {num_comments}
                 </IconButton>
                 <Typography variant="body2" color="text.secondary">
-                    <a href="#" target="_blank">Click here to see the comments</a>
+                    <Link to={{
+                        pathname: `/comments/${objectID}`
+                    }}>Click here to see the comments</Link>
                 </Typography>
             </CardActions>
-        </Card>
+        </Card >
     );
 }
 
